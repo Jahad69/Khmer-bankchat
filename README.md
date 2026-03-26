@@ -18,22 +18,25 @@ This repository contains the complete pipeline for training, evaluating, and dep
 ## Project Structure
 
 ```
-Code/
+push-git/
 ├── prepare-inference/       # Production inference system (FastAPI + Streamlit)
 │   ├── backend/             # API server, model management, RAG engine
 │   ├── frontend/            # Streamlit chat interface
-│   ├── qwen-model-ok/       # Fine-tuned Qwen3-4B adapter
-│   └── SeaLLM-model-ok/     # Fine-tuned SeaLLMs-v3-7B adapter
+│   ├── requirements.txt     # Python dependencies
+│   ├── start_all.sh         # Launch both backend & frontend
+│   ├── start_api.sh         # Launch FastAPI server only
+│   ├── start_ui.sh          # Launch Streamlit UI only
+│   └── stop_all.sh          # Stop all running services
 │
-├── Qwen/                    # Qwen model training experiments
-│   ├── train.ipynb          # Main training pipeline
-│   ├── model_evaluation.ipynb
-│   └── model-done/          # Final trained checkpoints
+├── result-train/            # Training results & visualizations
+│   ├── compare-result.jpg   # Model comparison visualization
+│   └── plot/                # Model-specific performance plots
+│       ├── Qwen/            # Qwen evaluation metrics (BLEU, ROUGE, etc.)
+│       ├── SeaLLM/          # SeaLLM evaluation metrics & loss curves
+│       └── Gemma/           # Gemma fine-tuning results
 │
-├── Qwen3.5/                 # Latest Qwen training iterations
-├── SeaLLm/                  # SeaLLMs fine-tuning & evaluation
-├── gamma/                   # Gemma model experiments
-├── New-Gamma/               # Gemma with Khmer RAG segmentation
+├── pull-model.ipynb         # Model download/setup notebook
+└── README.md                # Project documentation
 
 ```
 
