@@ -44,24 +44,22 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # Adapter registry  ←  change MODEL_ROOT if you move the adapter folders
 # ---------------------------------------------------------------------------
-# Support both local and cloud environments via environment variable
-# Set MODEL_ROOT_PATH env var to override default location
-# Example: export MODEL_ROOT_PATH=/teamspace/studios/this_studio/model-for-inference
-MODEL_ROOT = Path(os.getenv("MODEL_ROOT_PATH", Path(__file__).resolve().parent.parent))
-logger.info(f"MODEL_ROOT set to: {MODEL_ROOT}")
+
+MODEL_ROOT = Path(os.getenv("MODEL_ROOT_PATH", Path(__file__).resolve().parent.parent)) # parent of this file, i.e. prepare-inference/backend/
+logger.info(f"MODEL_ROOT set to: {MODEL_ROOT}") # parent of this file, i.e. prepare-inference/backend/
 
 ADAPTERS = {
     "qwen": {
         "label": "Qwen3-4B (QLoRA fine-tuned)",
         "base_model": "unsloth/qwen3-4b-unsloth-bnb-4bit",
-        "adapter_path": "/teamspace/studios/this_studio/model",
+        "adapter_path": "your path to model",
         "is_instruct": True,
         "emoji": "🟦",
     },
     "seallm": {
         "label": "SeaLLMs-v3-7B-Chat (QLoRA fine-tuned)",
         "base_model": "SeaLLMs/SeaLLMs-v3-7B-Chat",
-        "adapter_path": "/teamspace/studios/this_studio/seallm/Check-point_4500",
+        "adapter_path": "your path to model",
         "is_instruct": True,
         "emoji": "🟩",
     },

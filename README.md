@@ -71,6 +71,30 @@ All models were fine-tuned using **QLoRA** (Quantized Low-Rank Adaptation) for e
 - **Optimizer**: AdamW with cosine learning rate schedule
 - **Hardware**: CUDA-capable GPU (T4, VRAM16GB)
 
+### Training Results
+
+Below are the training progress summaries for each model (4500 steps):
+
+**SeaLLM** (Training time: 1:57:23)
+- Initial loss: 1.4517
+- Minimum loss: 0.1630
+- Final loss: 0.2017
+- **Improvement: 86.1%** ✓
+
+**Qwen** (Training time: 1:09:33)
+- Initial loss: 1.5014
+- Minimum loss: 0.2041
+- Final loss: 0.2720
+- **Improvement: 81.9%** ✓
+
+**Gemma** (Training time: 1:15:53)
+- Initial loss: 7.9055
+- Minimum loss: 7.3976
+- Final loss: 8.1264
+- **Loss reduction: -2.8%** ✗
+
+> **Note on Gemma**: The Gemma model showed no improvement during fine-tuning, with the loss actually increasing rather than decreasing. After training, the model's performance remained poor and did not produce useful results for the Khmer banking domain. Therefore, Gemma was excluded from production evaluation and deployment as there was no point in testing a model that failed to learn from the training data.
+
 ---
 
 ## RAG Implementation

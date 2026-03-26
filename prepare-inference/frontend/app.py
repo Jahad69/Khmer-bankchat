@@ -25,7 +25,7 @@ API_BASE = "http://localhost:8000"
 # Default RAG knowledge base path (can be overridden via environment variable)
 # Set RAG_CSV_PATH env var to use a different location
 DEFAULT_RAG_CSV = os.getenv(
-    "RAG_CSV_PATH", "/teamspace/studios/this_studio/FAQ-cooler.csv"
+    "RAG_CSV_PATH", "your path to csv file"
 )
 
 st.set_page_config(
